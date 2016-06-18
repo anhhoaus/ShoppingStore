@@ -1,0 +1,52 @@
+﻿@using BanSach_MyClass.Models;
+@model IEnumerable<Sach>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section ContentLeft{
+    <div class="content-left">
+        <h2>Nhã Xuất Bản</h2>
+        <ul class="nxb">
+            <li><a href="" title="">NXB Khoa Học</a></li>
+            <li><a href="" title="">NXB Tuổi Trẻ</a></li>
+            <li><a href="" title="">NXB Xã hội</a></li>
+            <li><a href="" title="">NXB Thanh Niên</a></li>
+            <li><a href="" title="">NXB Sự Thật</a></li>
+            <li><a href="" title="">NXB Kim Đồng</a></li>
+        </ul>
+        <h3><a href="" title="">Xem Thêm</a></h3>
+    </div>
+}
+<div class="title-content">
+    <h3>Sách Mới Nhất</h3>
+</div>
+@foreach (var sach in Model)
+{
+    <div class="item-content">
+
+        <div class="item-img"> 
+            <a href="@Url.Action("ViewDetail", "Home", new {@masach =sach.MaSach })" title="@sach.TenSach" target="_blank">
+                <img src="@Url.Content("/Picture/Product/" + sach.AnhBia)" alt="@sach.TenSach">
+            </a>
+        </div>
+        <div>
+            <a href="@Url.Action("ViewDetail", "Home", new {@masach =sach.MaSach })" title="@sach.TenSach" target="_blank">
+                @if (sach.TenSach.Length < 36)
+                {
+                    <h3 class="bookname">@sach.TenSach</h3>
+                }
+                else
+                {
+                    <h3 class="bookname">@sach.TenSach.Substring(0, 36)...</h3>
+                }
+            </a>
+            <span>Giá Bán :@String.Format("{0:0,0}", @sach.GiaBan)VND</span>
+            <a href="@Url.Action("ViewDetail", "Home", new {@masach =sach.MaSach })">Xem Chi tiết</a>
+        </div>
+
+        <div class="cb"></div>
+    </div>
+}
+
+

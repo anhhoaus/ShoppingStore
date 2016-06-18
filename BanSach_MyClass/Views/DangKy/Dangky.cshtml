@@ -1,0 +1,99 @@
+﻿@model BanSach_MyClass.Models.KhachHang
+
+@{
+    ViewBag.Title = "Dangky";
+    Layout = "~/Views/Shared/_Detail.cshtml";
+}
+
+<h2>Dangky</h2>
+
+@using (Html.BeginForm("DangKy", "DangKy", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>KhachHang</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaKH)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaKH)
+            @Html.ValidationMessageFor(model => model.MaKH)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TenKH)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TenKH)
+            @Html.ValidationMessageFor(model => model.TenKH)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NgaySinh)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NgaySinh)
+            @Html.ValidationMessageFor(model => model.NgaySinh)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SDT)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SDT)
+            @Html.ValidationMessageFor(model => model.SDT)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GioiTinh)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GioiTinh)
+            @Html.ValidationMessageFor(model => model.GioiTinh)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TaiKhoan)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TaiKhoan)
+            @Html.ValidationMessageFor(model => model.TaiKhoan)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MatKhau)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MatKhau)
+            @Html.ValidationMessageFor(model => model.MatKhau)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Diachi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Diachi)
+            @Html.ValidationMessageFor(model => model.Diachi)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

@@ -1,0 +1,13 @@
+﻿
+@using BanSach_MyClass.Models;
+@model IEnumerable<ChuDe>
+    <nav class="menu1">
+        <ul class="menu-inner">
+            @foreach (var topic in Model)
+            {
+                <li><a href="" title="">@topic.TenCD</a></li>
+            }          
+            
+        </ul>
+        <div class="cb"></div>
+    </nav>

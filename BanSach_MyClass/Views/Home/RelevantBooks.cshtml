@@ -1,0 +1,26 @@
+﻿@model List<BanSach_MyClass.Models.Sach>
+//nếu có giá tị lấy list nếu ko (rỗng) lấy kiểu enumable 
+// enumable là kiểu tập hợp
+@foreach(var sach in Model ?? Enumerable.Empty<BanSach_MyClass.Models.Sach>())
+{
+    <div>
+        <div class="title-content">
+            <h3>Sách cung chuyên mục</h3>
+        </div>
+
+            <div class="item-content">
+            <div class="item-img">
+                <a href="" title="" target="_blank">
+                    <img src="@Url.Content("/Picture/Product/Images/" + @sach.AnhBia)" alt="@sach.TenSach">
+                </a>
+            </div>
+            <div>
+                <a href="" title="" target="_blank">
+                    <h3 class="bookname">@sach.TenSach</h3>
+                </a>
+                <span>Giá Bán : @sach.GiaBan VND</span>
+                <a href="@Url.Action("ViewDetail", "MyPartial", new { @masach = sach.MaSach })">Xem Chi tiết</a>
+            </div>
+        </div>
+    </div>
+}

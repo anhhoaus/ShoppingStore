@@ -1,0 +1,37 @@
+﻿@model BanSach_MyClass.Models.KhachHang
+
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_Detail.cshtml";
+}
+
+<h2>DangNhap</h2>
+<h2>@ViewBag.Message</h2>
+@using (Html.BeginForm("DangNhap","DangKy",FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+
+        <div class="form-control">
+            @Html.LabelFor(model => model.TaiKhoan)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TaiKhoan)
+            @Html.ValidationMessageFor(model => model.TaiKhoan)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MatKhau)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MatKhau)
+            @Html.ValidationMessageFor(model => model.MatKhau)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+

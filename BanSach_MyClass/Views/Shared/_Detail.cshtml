@@ -1,0 +1,32 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> @ViewBag.Title</title>  
+    <link href="~/Content/Display/Css/Style.css" rel="stylesheet" />
+    <link href="~/Content/Display/Css/DetailPro.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+       @Html.Partial("../MyPartial/MenuTopPartial") <!-- MenutopPatial -->
+
+        
+         @Html.Partial("../MyPartial/MenuMain")<!--end nav-->
+
+         @Html.Partial("../MyPartial/Slide")<!--end slider-->
+        
+        @Html.Action("Topic","MyPartial")
+        <!--end chu đề-->
+       
+        <section class="content">
+               @RenderBody()            
+            <div class="cb"></div>
+        </section><!--end content-->
+        <footer>
+            <p>Copyright 1999-2016 by Refsnes Data. All Rights Reserved</p>
+        </footer>
+    </div>
+</body>
+</html>

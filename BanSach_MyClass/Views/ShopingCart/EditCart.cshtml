@@ -1,0 +1,38 @@
+﻿@using BanSach_MyClass.Models;
+@model List<ShopingCart>
+@{
+    ViewBag.Title = "EditCart";
+    Layout = "~/Views/Shared/_Detail.cshtml";
+}
+
+<h2>EditCart</h2>
+
+<table>
+    <tr>
+        <th>Mã Sách </th>
+        <th>Tên Sách></th>
+        <th>Anh Bìa</th>
+        <th>Số Lượng</th>
+        <th>Thành tiền</th>
+        <th>Chức Năng</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.iMaSach</td>
+            <td>@item.sTenSach</td>
+            <td><img src="@Url.Content("/Picture/Product" + item.sAnhBia)" /></td>
+            @using (Html.BeginForm("EditCart", "ShopingCart", new { @iMa = item.iMaSach }))
+            {
+                <td>@item.iSoLuong</td>
+                <td><input type="submit" value="Câp nhật" /></td>
+
+                <td>@item.dThanhTien</td>
+            }
+        </tr>
+
+
+    }
+
+</table>

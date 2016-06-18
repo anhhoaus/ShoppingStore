@@ -1,0 +1,32 @@
+﻿@using BanSach_MyClass.Models;
+@model List<ShopingCart>
+@{
+    ViewBag.Title = "ShopingCart";
+}
+
+<h2>ShopingCart</h2>
+
+<table>
+    <tr>
+        <th>Mã Sách </th>
+        <th>Tên Sách></th>
+        <th>Anh Bìa</th>
+        <th>Số Lượng</th>
+        <th>Thành tiền</th>
+        <th>Chức Năng</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.iMaSach</td>
+            <td>@item.sTenSach</td>
+            <td><img src="@Url.Content("/Picture/Product" + item.sAnhBia)" /></td>
+            <td>@item.iSoLuong</td>
+            <td>@item.dThanhTien</td>
+            <td>
+               @Html.ActionLink("Sửa Giỏ Hàng", "suaGioHang", new { })
+        </td>
+    </tr>
+    }
+
+</table>

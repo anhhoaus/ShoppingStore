@@ -1,0 +1,55 @@
+﻿@using BanSach_MyClass.Models
+@model Sach
+@{
+    ViewBag.Title = "ViewDetail";
+    Layout = "~/Views/Shared/_Detail.cshtml";
+    
+}
+
+    <div class="inner-detail">
+    <div class="detail-img">
+        <img src="@Url.Content("/Picture/Product/" + @Model.AnhBia)" />
+    </div>
+    <div class="detail">        
+        <div>
+            <table>
+                <tr>
+                    <td style="width:200px;"><h3>Tên Sách</h3></td>
+                    <td>@Model.TenSach</td>
+                </tr>
+                <tr>
+                    <td style="width:200px;">Chủ  Đề:</td>
+                    <td>@ViewBag.TenCD</td>
+                </tr>
+                <tr>
+                    <td>Nhà Xuất Bản:</td>
+                    <td>@ViewBag.TenNXB</td>
+                </tr>
+                <tr>
+                    <td>Mô Tả:</td>
+                    <td>@Model.Mota</td>
+                </tr>
+                <tr>
+                    <td><span style="color:red">Giá Bán:</span></td>
+                    <td><span style="color:red">@String.Format("{0:0,0}", @Model.GiaBan)VND</span></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        @using (Html.BeginForm("AddShopingCart", "ShopingCart", new { @iMaSach = Model.MaSach, @url = Request.Url.ToString() }))
+                        {
+                            <input type="submit" value="Mua hang" />
+                        }
+                   
+                    </td>
+                    
+                </tr>
+            </table>            
+        </div>
+    </div>
+    <div class="cb"></div>
+</div>
+
+@Html.Partial("RelevantBooks", Model.RelevantbBooks)
+@{Html.RenderAction("GetRelevantBooks", "Home", new { maSach = Model.MaSach, maCD = Model.MaCD });}
+

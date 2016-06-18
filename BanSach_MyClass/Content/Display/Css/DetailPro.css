@@ -1,0 +1,27 @@
+﻿.inner-detail{
+    
+}
+.inner-detail .detail-img {
+   float:left;
+   margin-right:20px;
+}
+.inner-detail .detail-img img{
+    width:350px;
+    height:500px;
+}
+
+.detail{
+ float:left;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;    
+}
+table{
+    width:610px;
+}
